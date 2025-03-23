@@ -1,12 +1,8 @@
 import React from 'react';
 import Navigation from './Navigation';
+import { HEADER_LINKS } from '../utils/Links';
 
 const Header = () => {
-  const HEADER_LINKS = [
-    { label: 'Home', path: '/' },
-    { label: 'Login', path: '/login' },
-    { label: 'Sign Up', path: '/signup' },
-  ];
 
   return (
     <header>
