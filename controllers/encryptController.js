@@ -19,4 +19,13 @@ module.exports = {
       return null;
     }
   },
+  checkPassword: async (input, hash) => {
+    try {
+      const match = await bcrypt.compare(input, hash);
+      return match;
+    } catch (err) {
+      console.error('Error comparing password:', err);
+      return false;
+    }
+  },
 };
