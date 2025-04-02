@@ -23,6 +23,15 @@ const sessionData = {
 
 app.use(session(sessionData));
 
+
+mongoose.connect(
+  process.env.MONGODB_URI || 'mongodb://127.0.0.1/tutorial-app',
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  }
+);
+
 app.listen(PORT, () => {
   console.log(`🚀 Server is up and running - ready to handle requests at Port ${PORT}! 🌐`);
 });
