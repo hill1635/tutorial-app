@@ -8,9 +8,20 @@ const MongoStore = require('connect-mongo');
 const PORT = 3000;
 app.use(express.json());
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
+const sessionData = {
+  secret: 'secret',
+  cookie: {
+    maxAge: 1000 * 60 * 60 * 24,
+  },
+  resave: false,
+  saveUninitialized: false,
+  store: MongoStore.create({
+    mongoUrl: process.env.MONGO_URI || 'mongodb://127.0.0.1/tutorial-app',
+    ttl: 14 * 24 * 60 * 60,
+  }),
+};
+
+app.use(session(sessionData));
 
 app.listen(PORT, () => {
   console.log(`🚀 Server is up and running - ready to handle requests at Port ${PORT}! 🌐`);
