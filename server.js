@@ -18,7 +18,7 @@ const sessionData = {
   resave: false,
   saveUninitialized: false,
   store: MongoStore.create({
-    mongoUrl: process.env.MONGO_URI || 'mongodb://127.0.0.1/tutorial-app',
+    mongoUrl: process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/tutorial-app',
     ttl: 14 * 24 * 60 * 60,
   }),
 };
@@ -28,7 +28,7 @@ app.use(session(sessionData));
 app.use(routes);
 
 mongoose.connect(
-  process.env.MONGODB_URI || 'mongodb://127.0.0.1/tutorial-app',
+  process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/tutorial-app',
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
