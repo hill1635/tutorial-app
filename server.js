@@ -1,11 +1,13 @@
 const express = require('express');
+const routes = require('./routes');
 const app = express();
 require('dotenv').config();
 const session = require('express-session');
 const mongoose = require('mongoose');
 const MongoStore = require('connect-mongo');
 
-const PORT = 3000;
+const PORT = 3001;
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 const sessionData = {
@@ -23,6 +25,7 @@ const sessionData = {
 
 app.use(session(sessionData));
 
+app.use(routes);
 
 mongoose.connect(
   process.env.MONGODB_URI || 'mongodb://127.0.0.1/tutorial-app',
