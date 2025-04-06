@@ -1,9 +1,10 @@
 import React from 'react';
 import EmailForm from '../components/EmailForm';
+import UserAPI from '../utils/UserAPI';
 
 const SignUp = () => {
   const signUp = (input) => {
-    console.log("Sign Up input:", input);
+    UserAPI.create(input);
   };
 
   return (
