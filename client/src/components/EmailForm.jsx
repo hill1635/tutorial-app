@@ -1,15 +1,11 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 const EmailForm = ({ onSubmit }) => {
-  const [ input, setInput ] = useState({email: '', password: ''});
-
-  useEffect(() => {
-    console.log("input:", input);
-  }, [ input ]);
+  const [ input, setInput ] = useState({});
 
   return (
-    <form>
+    <div>
       <label htmlFor="email">Email:</label>
       <input
         onInput={(e) => setInput({...input, email: e.target.value})}
@@ -28,7 +24,7 @@ const EmailForm = ({ onSubmit }) => {
         value={input.password}
         required />
       <button onClick={() => onSubmit(input)}>Submit</button>
-    </form>
+    </div>
   );
 }
 
