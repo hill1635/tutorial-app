@@ -1,14 +1,14 @@
 const bcrypt = require('bcrypt');
 
 module.exports = {
-  salt: async (rounds) => {
-    bcrypt.genSalt(rounds, (err, salt) => {
-      if (err) {
-        console.error('Error generating salt:', err);
-        return null;
-      }
+  generateSalt: async (rounds) => {
+    try {
+      const salt = await bcrypt.genSalt(rounds); // Use await to handle the Promise
       return salt;
-    });
+    } catch (err) {
+      console.error('Error generating salt:', err);
+      return null;
+    }
   },
   hash: async (password, salt) => {
     try {
