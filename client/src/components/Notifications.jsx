@@ -9,15 +9,16 @@ const Notification = ({ data, onDismiss }) => {
   };
 
   return (
-    !hidden &&
-      <div onClick={handleClick}
+    !hidden && (
+      <div
+        onClick={handleClick}
         className={`notification notification-${data.flag || 'info'}`}
       >
         <p>{data.message}</p>
         <button onClick={onDismiss}>Dismiss</button>
       </div>
+    )
   );
-
 };
 
 const Notifications = ({ messages }) => {
@@ -41,10 +42,12 @@ const Notifications = ({ messages }) => {
       {notifications.length > 0 &&
         notifications.map((notification, index) => (
           <div key={index} className="notification">
-            <Notification data={notification} onDismiss={() => onDismiss(index)}/>
+            <Notification
+              data={notification}
+              onDismiss={() => onDismiss(index)}
+            />
           </div>
-        ))
-      }
+        ))}
     </div>
   );
 };

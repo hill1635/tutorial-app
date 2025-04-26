@@ -7,19 +7,18 @@ import Notifications from '../components/Notifications';
 const SignUp = () => {
   const [messages, setMessages] = useState([]);
   const signUp = (input) => {
-    UserAPI.create(input)
-      .then(res => {
-        if (res.data.messages) {
-          setMessages(res.data.messages);
-        }
-      });
+    UserAPI.create(input).then((res) => {
+      if (res.data.messages) {
+        setMessages(res.data.messages);
+      }
+    });
   };
 
   return (
     <div>
       <h2>SignUp</h2>
-      <Notifications messages={messages}/>
-      <EmailForm onSubmit={signUp}/>
+      <Notifications messages={messages} />
+      <EmailForm onSubmit={signUp} />
     </div>
   );
 };

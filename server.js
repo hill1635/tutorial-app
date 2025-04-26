@@ -44,9 +44,11 @@ mongoose.connect(
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-  },
+  }
 );
 
 app.listen(PORT, () => {
-  console.log(`🚀 Server is up and running - ready to handle requests at Port ${PORT}! 🌐`);
+  console.log(
+    `🚀 Server is up and running - ready to handle requests at Port ${PORT}! 🌐`
+  );
 });

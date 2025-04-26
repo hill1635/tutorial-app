@@ -1,6 +1,6 @@
 import bcrypt from 'bcrypt';
 
-export const generateSalt = async(rounds) => {
+export const generateSalt = async (rounds) => {
   try {
     const salt = await bcrypt.genSalt(rounds);
     return salt;
@@ -10,7 +10,7 @@ export const generateSalt = async(rounds) => {
   }
 };
 
-export const hash = async(password, salt) => {
+export const hash = async (password, salt) => {
   try {
     const hash = await bcrypt.hash(password, salt);
     return hash;
@@ -20,7 +20,7 @@ export const hash = async(password, salt) => {
   }
 };
 
-export const checkPassword = async(input, hash) => {
+export const checkPassword = async (input, hash) => {
   try {
     const match = await bcrypt.compare(input, hash);
     return match;

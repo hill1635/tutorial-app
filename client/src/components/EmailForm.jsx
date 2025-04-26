@@ -22,7 +22,8 @@ const EmailForm = ({ onSubmit }) => {
         id="password"
         name="password"
         value={input.password}
-        required />
+        required
+      />
       <button onClick={() => onSubmit(input)}>Submit</button>
     </div>
   );

@@ -9,7 +9,7 @@ const Login = () => {
   return (
     <div>
       <h2>Login</h2>
-      <EmailForm onSubmit={login}/>
+      <EmailForm onSubmit={login} />
     </div>
   );
 };

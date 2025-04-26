@@ -3,7 +3,6 @@ import Navigation from './Navigation';
 import { HEADER_LINKS } from '../utils/Links';
 
 const Header = () => {
-
   return (
     <header>
       <img src="/logo192.png" alt="Logo" />

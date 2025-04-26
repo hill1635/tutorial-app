@@ -17,7 +17,7 @@ const Home = () => {
       </section>
       <section>
         <h3>Maybe we can answer those questions</h3>
-        <p>But also, maybe not.  We could just make it more confusing.</p>
+        <p>But also, maybe not. We could just make it more confusing.</p>
       </section>
     </main>
   );

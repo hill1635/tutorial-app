@@ -4,7 +4,7 @@ import User from '../models/user.js';
 const INTERNAL_SERVER_ERROR = 500;
 const ROUNDS = 10;
 
-export const createUser = async(req, res) => {
+export const createUser = async (req, res) => {
   try {
     const { email, password } = req.body;
     const salt = await encrypt.generateSalt(ROUNDS);
@@ -16,7 +16,13 @@ export const createUser = async(req, res) => {
     })
       .then((dbUser) => {
         const returnData = {
-          messages: [{ flag: 'success', message: 'User created successfully', value: email }],
+          messages: [
+            {
+              flag: 'success',
+              message: 'User created successfully',
+              value: email,
+            },
+          ],
           ...dbUser,
         };
         res.json(returnData);
@@ -24,7 +30,14 @@ export const createUser = async(req, res) => {
       .catch((err) => {
         if (err.name === 'MongoServerError') {
           res.json({
-            messages: [{ flag: 'fail', field: 'email', message: 'Email already exists', value: email }],
+            messages: [
+              {
+                flag: 'fail',
+                field: 'email',
+                message: 'Email already exists',
+                value: email,
+              },
+            ],
           });
         } else if (err.name === 'ValidationError') {
           const errorDetails = Object.keys(err.errors).map((key) => {
