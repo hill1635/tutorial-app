@@ -20,7 +20,6 @@ export const createUser = async(req, res) => {
         res.json(returnData);
       })
       .catch((err) => {
-        console.log('Error creating user:', err.name);
         if (err.name === 'MongoServerError') {
           res.json({
             messages: [{ flag: 'fail', field: 'email', message: 'Email already exists', value: email }],

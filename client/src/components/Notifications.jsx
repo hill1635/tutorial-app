@@ -24,15 +24,9 @@ const Notifications = ({ messages }) => {
   const [notifications, setNotifications] = useState([]);
 
   useEffect(() => {
-    console.log('Messages:', messages);
     const newArray = [...messages, ...notifications];
     setNotifications(newArray);
   }, [messages]);
-
-  useEffect(() => {
-    console.log('Notifications:', notifications);
-  }
-  , [notifications]);
 
   const onDismiss = (index) => {
     setNotifications((prevNotifications) => {
