@@ -6,11 +6,11 @@ const Notification = ({ data, onDismiss }) => {
 
   const handleClick = () => {
     setHidden(true);
-  }
+  };
 
   return (
     !hidden &&
-      <div onClick={handleClick} 
+      <div onClick={handleClick}
         className={`notification notification-${data.flag || 'info'}`}
       >
         <p>{data.message}</p>
@@ -18,21 +18,15 @@ const Notification = ({ data, onDismiss }) => {
       </div>
   );
 
-}
+};
 
 const Notifications = ({ messages }) => {
   const [notifications, setNotifications] = useState([]);
 
   useEffect(() => {
-    console.log('Messages:', messages);
     const newArray = [...messages, ...notifications];
     setNotifications(newArray);
   }, [messages]);
-
-  useEffect(() => {
-    console.log('Notifications:', notifications);
-  }
-  , [notifications]);
 
   const onDismiss = (index) => {
     setNotifications((prevNotifications) => {
@@ -40,7 +34,7 @@ const Notifications = ({ messages }) => {
       newNotifications.splice(index, 1);
       return newNotifications;
     });
-  }
+  };
 
   return (
     <div>
@@ -53,6 +47,6 @@ const Notifications = ({ messages }) => {
       }
     </div>
   );
-}
+};
 
 export default Notifications;

@@ -11,5 +11,5 @@ const Header = () => {
       <Navigation links={HEADER_LINKS} />
     </header>
   );
-}
+};
 export default Header;

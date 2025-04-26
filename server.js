@@ -1,3 +1,4 @@
+/* global process */
 import express from 'express';
 import routes from './routes/index.js';
 import dotenv from 'dotenv';
@@ -13,16 +14,24 @@ const PORT = 3001;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+const { ms, secs, mins, hours, days } = {
+  ms: 1,
+  secs: 1000,
+  mins: 60,
+  hours: 60,
+  days: 14,
+};
+
 const sessionData = {
   secret: 'secret',
   cookie: {
-    maxAge: 1000 * 60 * 60 * 24,
+    maxAge: ms * secs * mins * hours,
   },
   resave: false,
   saveUninitialized: false,
   store: MongoStore.create({
     mongoUrl: process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/tutorial-app',
-    ttl: 14 * 24 * 60 * 60,
+    ttl: secs * mins * hours * days,
   }),
 };
 
@@ -35,7 +44,7 @@ mongoose.connect(
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-  }
+  },
 );
 
 app.listen(PORT, () => {

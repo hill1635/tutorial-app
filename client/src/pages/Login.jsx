@@ -3,7 +3,7 @@ import EmailForm from '../components/EmailForm';
 
 const Login = () => {
   const login = (input) => {
-    console.log("Login input:", input);
+    console.log('Login input:', input);
   };
 
   return (
@@ -12,6 +12,6 @@ const Login = () => {
       <EmailForm onSubmit={login}/>
     </div>
   );
-}
+};
 
 export default Login;

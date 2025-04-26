@@ -8,11 +8,11 @@ const SignUp = () => {
   const [messages, setMessages] = useState([]);
   const signUp = (input) => {
     UserAPI.create(input)
-    .then(res => {
-      if (res.data.messages) {
-        setMessages(res.data.messages);
-      }
-    });
+      .then(res => {
+        if (res.data.messages) {
+          setMessages(res.data.messages);
+        }
+      });
   };
 
   return (
@@ -22,6 +22,6 @@ const SignUp = () => {
       <EmailForm onSubmit={signUp}/>
     </div>
   );
-}
+};
 
 export default SignUp;
