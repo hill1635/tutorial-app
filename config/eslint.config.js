@@ -36,8 +36,6 @@ export default defineConfig([
       'no-useless-return': 'error', // Disallow redundant return statements
       'space-before-function-paren': ['error', 'never'], // Enforce consistent spacing before function parentheses
       'comma-dangle': ['error', 'always-multiline'],
-      'react/prop-types': 'off', // Disable the react/prop-types rule
-      'react/no-unescaped-entities': 'off', // Disable the react/prop-types rule
     },
   },
   {
