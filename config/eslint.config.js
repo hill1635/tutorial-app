@@ -37,7 +37,12 @@ export default defineConfig([
       'object-curly-spacing': ['error', 'always'], // Enforce spacing inside object literals for readability
       'no-useless-concat': 'error', // Disallow unnecessary concatenation of strings
       'no-useless-return': 'error', // Disallow redundant return statements
-      'space-before-function-paren': ['error', 'never'], // Enforce consistent spacing before function parentheses
+      'space-before-function-paren': ['error', {
+        'anonymous': 'always',
+        'named': 'never',
+        'asyncArrow': 'always',
+      },
+      ], // Enforce consistent spacing before function parentheses
       'comma-dangle': ['error', 'always-multiline'],
     },
   },

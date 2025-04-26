@@ -1,4 +1,3 @@
-# .prettierrc.yaml
 # Prettier configuration with best practices
 
 printWidth: 80 # Limit line length to improve readability and maintain consistent formatting across editors
@@ -8,7 +7,7 @@ semi: true # End statements with semicolons to avoid potential issues with autom
 singleQuote: true # Use single quotes for strings to maintain consistency with many JavaScript style guides
 quoteProps: 'as-needed' # Only add quotes around object properties when required to reduce visual clutter
 jsxSingleQuote: false # Use double quotes in JSX for consistency with HTML attributes
-trailingComma: 'es5' # Add trailing commas where valid in ES5 to make version control diffs cleaner
+trailingComma: 'all' # Add trailing commas in all multi-line structures to match ESLint's "always-multiline" rule
 bracketSpacing: true # Add spaces between brackets in object literals for improved readability
 bracketSameLine: false # Put > of a multi-line JSX element at the end of the last line for better readability
 arrowParens: 'always' # Always include parentheses around arrow function arguments for clarity and consistency
@@ -16,3 +15,7 @@ proseWrap: 'preserve' # Do not wrap markdown text to respect the author's format
 htmlWhitespaceSensitivity: 'css' # Respect the default value of CSS display property for whitespace handling
 endOfLine: 'lf' # Use line feed only (\n) for newlines to ensure compatibility across different operating systems
 embeddedLanguageFormatting: 'auto' # Automatically format embedded code for consistency and readability
+overrides:
+  - files: '*.jsx'
+    options:
+      jsxSingleQuote: false # Ensure JSX uses double quotes for consistency with HTML attributes
