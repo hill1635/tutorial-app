@@ -38,11 +38,11 @@ export default defineConfig([
       'comma-dangle': ['error', 'always-multiline'],
       'react/prop-types': 'off', // Disable the react/prop-types rule
       'react/no-unescaped-entities': 'off', // Disable the react/prop-types rule
-    }
+    },
   },
   {
     files: ['**/*.{js,mjs,cjs,jsx}'],
-    languageOptions: { globals: globals.browser }
+    languageOptions: { globals: globals.browser },
   },
   pluginReact.configs.flat.recommended,
 ]);
