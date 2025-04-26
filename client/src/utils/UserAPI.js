@@ -1,7 +1,9 @@
 import axios from 'axios';
 
-export default {
+const UserAPI = {
   create: function (userData) {
     return axios.post('/api/user/', userData);
   },
 };
+
+export default UserAPI;
