@@ -2,6 +2,7 @@ import js from '@eslint/js';
 import globals from 'globals';
 import pluginReact from 'eslint-plugin-react';
 import { defineConfig } from 'eslint/config';
+const NUMBER_OF_INDENTS = 2;
 
 export default defineConfig([
   {
@@ -21,7 +22,7 @@ export default defineConfig([
       'no-const-assign': 'error', // Disallow modifying variables declared as const
       'no-param-reassign': ['error', { 'props': true }], // Disallow reassigning function parameters to avoid unexpected behavior
       'array-bracket-spacing': ['error', 'never'], // Enforce spacing inside array brackets for readability
-      'indent': ['error', 2], // Enforce consistent indentation for better readability
+      'indent': ['error', NUMBER_OF_INDENTS], // Enforce consistent indentation for better readability
       'quotes': ['error', 'single', { 'avoidEscape': true }], // Enforce single quotes for strings for consistency
       'semi': ['error', 'always'], // Enforce semicolons at the end of statements for clarity
       'no-trailing-spaces': 'error', // Disallow trailing spaces for cleaner code
@@ -33,7 +34,8 @@ export default defineConfig([
       'object-curly-spacing': ['error', 'always'], // Enforce spacing inside object literals for readability
       'no-useless-concat': 'error', // Disallow unnecessary concatenation of strings
       'no-useless-return': 'error', // Disallow redundant return statements
-      'space-before-function-paren': ['error', 'never'] // Enforce consistent spacing before function parentheses
+      'space-before-function-paren': ['error', 'never'], // Enforce consistent spacing before function parentheses
+      'comma-dangle': ['error', 'always-multiline'],
     }
   },
   {
