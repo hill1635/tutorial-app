@@ -1,12 +1,15 @@
-const express = require('express');
-const routes = require('./routes');
-const app = express();
-require('dotenv').config();
-const session = require('express-session');
-const mongoose = require('mongoose');
-const MongoStore = require('connect-mongo');
+import express from 'express';
+import routes from './routes/index.js';
+import dotenv from 'dotenv';
+import session from 'express-session';
+import mongoose from 'mongoose';
+import MongoStore from 'connect-mongo';
 
+dotenv.config();
+
+const app = express();
 const PORT = 3001;
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
