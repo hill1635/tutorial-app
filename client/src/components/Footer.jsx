@@ -10,5 +10,5 @@ const Footer = () => {
       <Navigation links={FOOTER_LINKS} />
     </footer>
   );
-}
+};
 export default Footer;
