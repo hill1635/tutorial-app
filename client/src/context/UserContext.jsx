@@ -29,11 +29,7 @@ export const UserProvider = ({ children }) => {
         init.current = true;
       }
   }, []);
-
-  useEffect(() => {
-    console.log("user:", user);
-  }, [user]);
-
+  
   return (
     <UserContext.Provider value={{ user, setUser }}>
       {children}
