@@ -5,7 +5,7 @@ export const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
   const init = useRef(false);
-  const [ user, setUser ] = useState({
+  const [user, setUser] = useState({
     id: null,
     email: '',
   });
@@ -25,11 +25,11 @@ export const UserProvider = ({ children }) => {
         .catch((error) => {
           console.error('Error during session check:', error);
         });
-      } else {
-        init.current = true;
-      }
+    } else {
+      init.current = true;
+    }
   }, []);
-  
+
   return (
     <UserContext.Provider value={{ user, setUser }}>
       {children}

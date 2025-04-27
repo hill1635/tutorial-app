@@ -10,13 +10,20 @@ export const login = async (req, res) => {
       .then((dbModel) => {
         if (!dbModel) {
           res.status(BAD_REQUEST);
-          return res.status(BAD_REQUEST).send({ message: 'Email is incorrect.' });
+          return res
+            .status(BAD_REQUEST)
+            .send({ message: 'Email is incorrect.' });
         }
 
-        const validPassword = checkPassword(req.body.password, dbModel[0].password);
+        const validPassword = checkPassword(
+          req.body.password,
+          dbModel[0].password,
+        );
 
         if (!validPassword) {
-          return res.status(BAD_REQUEST).send({ message: 'Password is invalid.' });
+          return res
+            .status(BAD_REQUEST)
+            .send({ message: 'Password is invalid.' });
         } else {
           req.session.save(() => {
             req.session.loggedIn = true;

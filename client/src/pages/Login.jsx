@@ -7,17 +7,16 @@ const Login = () => {
   const { setUser } = useContext(UserContext);
   const submit = (input) => {
     SessionAPI.login(input)
-    .then((response) => {
-      if (response.status === 200) {
-        setUser(response.data);
-      } else {
-        console.error('Login failed:', response.data);
-      }
-    }
-    )
-    .catch((error) => {
-      console.error('Error during login:', error);
-    });
+      .then((response) => {
+        if (response.status === 200) {
+          setUser(response.data);
+        } else {
+          console.error('Login failed:', response.data);
+        }
+      })
+      .catch((error) => {
+        console.error('Error during login:', error);
+      });
   };
 
   return (
