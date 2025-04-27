@@ -20,8 +20,11 @@ export const login = async (req, res) => {
         } else {
           req.session.save(() => {
             req.session.loggedIn = true;
-            req.session.user = dbModel[0]._id;
-            res.status(OK).json({ user: req.body.email, id: dbModel[0]._id });
+            req.session.user = {
+              id: dbModel[0]._id,
+              email: dbModel[0].email,
+            };
+            res.status(OK).json(req.session.user);
           });
         }
       })
@@ -35,9 +38,9 @@ export const login = async (req, res) => {
 export const getSession = async (req, res) => {
   try {
     if (req.session.loggedIn) {
-      res.status(OK).json({ session: req.session });
+      res.status(OK).json(req.session.user);
     } else {
-      res.status(OK).json({ session: null });
+      res.status(OK).json(null);
     }
   } catch (err) {
     console.error('Error in getSession:', err);
