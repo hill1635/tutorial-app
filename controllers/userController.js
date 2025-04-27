@@ -2,6 +2,8 @@
 import * as encrypt from './encryptController.js';
 import User from '../models/user.js';
 const INTERNAL_SERVER_ERROR = 500;
+const BAD_REQUEST = 400;
+const OK = 200;
 const ROUNDS = 10;
 
 export const createUser = async (req, res) => {
