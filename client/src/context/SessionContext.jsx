@@ -1,11 +1,11 @@
 import React, { createContext, useState, useRef, useEffect } from 'react';
 import SessionAPI from '../utils/SessionAPI';
 
-export const UserContext = createContext();
+export const SessionContext = createContext();
 
-export const UserProvider = ({ children }) => {
+export const SessionProvider = ({ children }) => {
   const init = useRef(false);
-  const [user, setUser] = useState({
+  const [session, setSession] = useState({
     id: null,
     email: '',
   });
@@ -16,7 +16,7 @@ export const UserProvider = ({ children }) => {
         .then((response) => {
           if (response.status === 200) {
             if (response.data) {
-              setUser(response.data);
+              setSession(response.data);
             }
           } else {
             console.error('Failed to get session:', response.data);
@@ -31,8 +31,8 @@ export const UserProvider = ({ children }) => {
   }, []);
 
   return (
-    <UserContext.Provider value={{ user, setUser }}>
+    <SessionContext.Provider value={{ session, setSession }}>
       {children}
-    </UserContext.Provider>
+    </SessionContext.Provider>
   );
 };

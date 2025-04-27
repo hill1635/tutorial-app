@@ -5,12 +5,12 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { UserProvider } from './context/UserContext';
+import { SessionProvider } from './context/SessionContext';
 import './App.css';
 
 function App() {
   return (
-    <UserProvider>
+    <SessionProvider>
       <Router>
         <Header />
         <Routes>
@@ -20,7 +20,7 @@ function App() {
         </Routes>
         <Footer />
       </Router>
-    </UserProvider>
+    </SessionProvider>
   );
 }
 
