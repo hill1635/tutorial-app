@@ -42,6 +42,21 @@ export const login = async (req, res) => {
   }
 };
 
+export const logout = async (req, res) => {
+  try {
+    if (req.session.loggedIn) {
+      req.session.destroy(() => {
+        res.status(OK).json({ message: 'Logged out successfully.' });
+      });
+    } else {
+      res.status(OK).json({ message: 'No session found.' });
+    }
+  } catch (err) {
+    console.error('Error in logout:', err);
+    res.status(INTERNAL_SERVER_ERROR).json(err);
+  }
+};
+
 export const getSession = async (req, res) => {
   try {
     if (req.session.loggedIn) {
