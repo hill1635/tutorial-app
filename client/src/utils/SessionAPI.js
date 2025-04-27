@@ -7,6 +7,9 @@ const SessionAPI = {
   login: function (userData) {
     return axios.post('/api/session/login', userData);
   },
+  logout: function () {
+    return axios.post('/api/session/logout');
+  },
 };
 
 export default SessionAPI;

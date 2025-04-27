@@ -1,3 +1,5 @@
+import SessionAPI from './SessionAPI';
+
 export const FOOTER_LINKS = [
   { label: 'Privacy Policy', type: 'link', path: '/privacy', show: 'always' },
   { label: 'Terms of Service', type: 'link', path: '/terms', show: 'always' },
@@ -10,4 +12,5 @@ export const HEADER_LINKS = [
   { label: 'Account', type: 'link', path: '/account', show: 'signedIn' },
   { label: 'Login', type: 'link', path: '/login', show: 'signedOut' },
   { label: 'Sign Up', type: 'link', path: '/signup', show: 'signedOut' },
+  { label: 'Log Out', type: 'link', path: await SessionAPI.logout().then(() => { return '/'; }), show: 'signedIn' },
 ];
