@@ -31,3 +31,16 @@ export const login = async (req, res) => {
     res.status(INTERNAL_SERVER_ERROR).json(err);
   }
 };
+
+export const getSession = async (req, res) => {
+  try {
+    if (req.session.loggedIn) {
+      res.status(OK).json({ session: req.session });
+    } else {
+      res.status(OK).json({ session: null });
+    }
+  } catch (err) {
+    console.error('Error in getSession:', err);
+    res.status(INTERNAL_SERVER_ERROR).json(err);
+  }
+};
