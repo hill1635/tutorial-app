@@ -1,15 +1,15 @@
 import React, { useContext } from 'react';
 import EmailForm from '../components/EmailForm';
 import SessionAPI from '../utils/SessionAPI';
-import { UserContext } from '../context/UserContext';
+import { SessionContext } from '../context/SessionContext';
 
 const Login = () => {
-  const { setUser } = useContext(UserContext);
+  const { setSession } = useContext(SessionContext);
   const submit = (input) => {
     SessionAPI.login(input)
       .then((response) => {
         if (response.status === 200) {
-          setUser(response.data);
+          setSession(response.data);
         } else {
           console.error('Login failed:', response.data);
         }
